@@ -1,9 +1,12 @@
+<!-- Youtube Iframe -->
 <iframe></iframe>
 <script>
-  const soundtrackId = '0pEd9xtsMvA';
+  // replace with new Id
+  const soundtrackId = "0pEd9xtsMvA";
   // get iframe element
-  const iframe = document.querySelector('iframe');
-  iframe.src = "https://www.youtube.com/embed/" + soundtrackId + "?rel=0&enablejsapi=1";
+  const iframe = document.querySelector("iframe");
+  iframe.src =
+    "https://www.youtube.com/embed/" + soundtrackId + "?rel=0&enablejsapi=1";
   iframe.className = "hiddenFrame";
   iframe.id = "player";
 
@@ -41,15 +44,16 @@
   reveal.addEventListener("click", function () {
     iframe.style.opacity = "1";
   });
-
 </script>
 <style>
   body {
     display: flex;
     flex-direction: column;
   }
+  button {
+    margin-bottom: 20px;
+  }
   .hiddenFrame {
     opacity: 0;
   }
 </style>
-
