@@ -1,25 +1,12 @@
-<iframe
-  class="hiddenFrame"
-  id="player"
-  src="https://www.youtube.com/embed/73B9a2EKlcM?rel=0&enablejsapi=1"
-></iframe>
-<script
-  src="https://code.jquery.com/jquery-1.12.3.js"
-  integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc="
-  crossorigin="anonymous"
-></script>
-<button id="btnplay">PLAY</button>
-<button id="reveal">Audio Reveal</button>
-<style>
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-  .hiddenFrame {
-    opacity: 0;
-  }
-</style>
+<iframe></iframe>
 <script>
+  const soundtrackId = '73B9a2EKlcM';
+  // get iframe element
+  const iframe = document.querySelector('iframe');
+  iframe.src = "https://www.youtube.com/embed/" + soundtrackId + "?rel=0&enablejsapi=1";
+  iframe.className = "hiddenFrame";
+  iframe.id = "player";
+
   let tag = document.createElement("script");
 
   tag.src = "https://www.youtube.com/iframe_api";
@@ -37,17 +24,32 @@
   }
 
   function onPlayerReady() {
-    $(btnplay).on("click", function () {
+    const btnplay = document.getElementById("btnplay");
+    btnplay.addEventListener("click", function () {
       console.log("clicked play");
       player.playVideo();
     });
   }
 
   const revealZone = document.getElementById("player");
-  // console.log(revealZone)
-  // revealZone.style.opacity = '1';
-  $(reveal).on("click", function () {
-    console.log("clicked reveal");
-    revealZone.style.opacity = "1";
-  });
 </script>
+<button id="btnplay">PLAY</button>
+<button id="reveal">Audio Reveal</button>
+<script>
+  // get reveal button and on click change iframe opacity to 1
+  const reveal = document.getElementById("reveal");
+  reveal.addEventListener("click", function () {
+    iframe.style.opacity = "1";
+  });
+
+</script>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .hiddenFrame {
+    opacity: 0;
+  }
+</style>
+
