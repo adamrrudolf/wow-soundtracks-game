@@ -1,0 +1,82 @@
+<iframe></iframe>
+<script>
+  const soundtrackId = "aFbCofgwdXo";
+  // get iframe element
+  const iframe = document.querySelector("iframe");
+  iframe.src =
+    "https://www.youtube.com/embed/" +
+    soundtrackId +
+    "?rel=0&enablejsapi=1&start=1559";
+  iframe.className = "hiddenFrame";
+  iframe.id = "player";
+
+  let tag = document.createElement("script");
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  let firstScriptTag = document.getElementsByTagName("script")[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  let player;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player("player", {
+      events: {
+        onReady: onPlayerReady
+      }
+    });
+  }
+
+  function onPlayerReady() {
+    const btnplay = document.getElementById("btnplay");
+    btnplay.addEventListener("click", function () {
+      console.log("clicked play");
+      player.playVideo();
+    });
+  }
+
+  const revealZone = document.getElementById("player");
+</script>
+<button id="btnplay">PLAY</button>
+<br />
+<br />
+<button id="giveHint1">Hint 1</button>
+<br />
+<br />
+<button id="giveHint2">Hint 2</button>
+<br />
+<br />
+<button id="giveHint3">Hint 3</button>
+<br />
+<br />
+<button id="reveal">Audio Reveal</button>
+<script>
+  // get reveal button and on click change iframe opacity to 1
+  const reveal = document.getElementById("reveal");
+  reveal.addEventListener("click", function () {
+    iframe.style.opacity = "1";
+  });
+  // give hint in alert form
+  let hints = ["Classic", "Zone", "Orange,Red"];
+
+  const giveHint1 = document.getElementById("giveHint1");
+  giveHint1.addEventListener("click", function () {
+    alert("Expansion: " + hints[0]);
+  });
+  const giveHint2 = document.getElementById("giveHint2");
+  giveHint2.addEventListener("click", function () {
+    alert("Dungeon, Raid or Zone?: " + hints[1]);
+  });
+  const giveHint3 = document.getElementById("giveHint3");
+  giveHint3.addEventListener("click", function () {
+    alert("Describe area with 1-2 colours: " + hints[2]);
+  });
+</script>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .hiddenFrame {
+    opacity: 0;
+  }
+</style>
