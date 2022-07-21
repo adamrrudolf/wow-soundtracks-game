@@ -62,5 +62,6 @@
       // "teambit.react/react": { }
     }
   },
-  "composeland.apps/server": {}
+  "composeland.apps/server": {},
+  "composeland.apps/soundtracks": {}
 }

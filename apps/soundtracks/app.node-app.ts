@@ -6,10 +6,10 @@ import { NodeAppOptions, DeployContext } from "@teambit/node";
     // upload the the file to server
     };
 */
-export const HelloWorldApp: NodeAppOptions = {
+export const SoundtracksApp: NodeAppOptions = {
   name: "server",
   entry: require.resolve("./server.app-root"),
   // deploy: deployFunction,
 };
 
-export default HelloWorldApp;
+export default SoundtracksApp;

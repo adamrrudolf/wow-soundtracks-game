@@ -9,27 +9,11 @@
  */
 
 {
-    "server": {
-        "scope": "",
-        "version": "",
+    "soundtracks": {
+        "scope": "composeland.apps",
+        "version": "0.0.1",
         "mainFile": "index.ts",
-        "rootDir": "apps/server",
-        "config": {
-            "teambit.dependencies/dependency-resolver": {},
-            "teambit.component/dev-files": {},
-            "teambit.compositions/compositions": {},
-            "teambit.docs/docs": {},
-            "teambit.envs/envs": {},
-            "teambit.pipelines/builder": {},
-            "teambit.compilation/compiler": {},
-            "teambit.component/forking": {
-                "forkedFrom": {
-                    "scope": "learnbit.apps",
-                    "name": "node-app",
-                    "version": "0.0.3"
-                }
-            }
-        }
+        "rootDir": "apps/soundtracks"
     },
     "$schema-version": "14.9.0"
 }
